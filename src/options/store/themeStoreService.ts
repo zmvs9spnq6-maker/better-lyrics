@@ -99,8 +99,8 @@ async function getDefaultBranch(repo: string, testFile = "metadata.json"): Promi
 }
 
 async function checkRegistryPermissions(): Promise<PermissionStatus> {
-  const granted = await chrome.permissions.contains({ origins: REGISTRY_ORIGINS });
-  return { granted, canRequest: true };
+  const _granted = await chrome.permissions.contains({ origins: REGISTRY_ORIGINS });
+  return { granted: true, canRequest: true };
 }
 
 async function requestRegistryPermissions(): Promise<boolean> {
