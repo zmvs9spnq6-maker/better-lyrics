@@ -213,8 +213,10 @@ export async function romanizeBatch(request: BatchRequest): Promise<BatchRomaniz
 
       let fullRomanizedText = "";
       for (const part of data[0]) {
-        if (part[3]) {
-          fullRomanizedText += part[3];
+        if (!part) continue;
+        const romanized = part[3] || part[2];
+        if (romanized) {
+          fullRomanizedText += romanized;
         }
       }
 
